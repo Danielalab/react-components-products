@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SearchBar extends Component {
-  render() {
-    return (
-        <form className = "form">
-          <input type="text" placeholder="Search..." />
-          <p>
-            <input type="checkbox" />
-            {' '}
-            Only show products in stock
-          </p>
-        </form>
-      );
-  }
-}
+const SearchBar = ({ text, checkbox, setTextInput, setProductsStock}) => (
+  <form className = "form">
+    <input type="text" placeholder="Search..." value={text} onChange={event => {
+      setTextInput(event.target.value);
+    }}/>
+    <p>
+    <input type="checkbox" checked={checkbox} onChange={event => {
+      setProductsStock(event.target.checked);
+    }}/>
+    {' '}
+    Only show products in stock
+    </p>
+  </form>
+)
 
 export default SearchBar
